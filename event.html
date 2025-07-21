@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Ray's Golf Tour- Grand Opening</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e8b57;
+            --secondary: #1a659e;
+            --accent: #d4af37;
+            --dark: #7c046c;
+            --light: #f0fff0;
+            --text: #065504;
+            --sand: #f5f5dc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(to bottom, #e6f3e6, var(--light));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+
+        .logo-icon {
+            background: var(--accent);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 100, 0, 0.8)), url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .date-badge {
+            background: var(--accent);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: var(--dark);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background: #c19d2e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--accent);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Facilities Section */
+        .facilities {
+            background: var(--sand);
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .facility-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .facility-icon {
+            background: var(--primary);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem auto;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .facility-content {
+            padding: 1.5rem;
+        }
+
+        .facility-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Events Section */
+        .events {
+            background: linear-gradient(to bottom, var(--light), var(--sand));
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-meta {
+            display: flex;
+            margin: 1rem 0;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .event-meta div {
+            margin-right: 1.5rem;
+        }
+
+        .event-meta i {
+            margin-right: 5px;
+        }
+
+        .event-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        /* Tickets Section */
+        .tickets {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+        }
+
+        .tickets .section-title h2 {
+            color: white;
+        }
+
+        .ticket-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ticket-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .ticket-card.featured {
+            background: var(--accent);
+            transform: scale(1.05);
+            color: var(--dark);
+        }
+
+        .ticket-card.featured .ticket-features li i {
+            color: var(--dark);
+        }
+
+        .ticket-card.featured:hover {
+            transform: scale(1.08);
+        }
+
+        .ticket-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .ticket-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+
+        .ticket-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .ticket-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .ticket-features li:last-child {
+            border-bottom: none;
+        }
+
+        .ticket-features li i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        /* Location Section */
+        .location-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-info {
+            flex: 1;
+        }
+
+        .location-map {
+            flex: 1;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--accent);
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer:before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,0 Q50,10 100,0 Z" fill="%23f0fff0"/></svg>');
+            background-size: 100% 100%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            color: var(--dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Golf Ball Decoration */
+        .golf-ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1), 
+                        0 5px 10px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .golf-ball:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: 
+                radial-gradient(circle at 30% 30%, white 1.5px, transparent 2px),
+                radial-gradient(circle at 70% 30%, white 1.5px, transparent 2px),
+                radial-gradient(circle at 50% 60%, white 1.5px, transparent 2px),
+                radial-gradient(circle at 20% 70%, white 1.5px, transparent 2px),
+                radial-gradient(circle at 80% 70%, white 1.5px, transparent 2px);
+            background-size: 40px 40px;
+            border-radius: 50%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+
+            .about-content,
+            .location-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 4rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav li {
+                margin: 0;
+                text-align: center;
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .ticket-card.featured {
+                transform: scale(1);
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+                padding: 0.7rem;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+        .hero-banner {
+            background: linear-gradient(rgba(44, 0, 60, 0.5), rgba(34, 139, 87, 0.5)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+            box-shadow: 0 4px 24px rgba(44,0,60,0.08);
+        }
+        .hero-banner h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.18);
+        }
+        .hero-banner p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.12);
+        }
+        .about-section-modern {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem auto 2rem auto;
+            max-width: 1100px;
+            background: var(--light);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(44,0,60,0.07);
+            padding: 2.5rem 2rem;
+        }
+        .about-img-modern {
+            flex: 1 1 320px;
+            min-width: 260px;
+            max-width: 400px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(44,0,60,0.10);
+        }
+        .about-img-modern img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .about-text-modern {
+            flex: 2 1 380px;
+            min-width: 260px;
+            padding: 0 1rem;
+        }
+        .about-text-modern p {
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        .about-text-modern .btn {
+            font-size: 1.15rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: 30px;
+            margin-top: 1.2rem;
+            box-shadow: 0 2px 8px rgba(44,0,60,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .about-text-modern .btn:hover {
+            transform: translateY(-2px) scale(1.04);
+            filter: brightness(1.1);
+        }
+        @media (max-width: 900px) {
+            .about-section-modern {
+                flex-direction: column;
+                padding: 2rem 1rem;
+            }
+            .about-img-modern, .about-text-modern {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Golf Ball Decorations -->
+    <div class="golf-ball" style="top: 20%; left: 5%;"></div>
+    <div class="golf-ball" style="top: 40%; right: 7%;"></div>
+    <div class="golf-ball" style="top: 70%; left: 10%;"></div>
+    <div class="golf-ball" style="top: 85%; right: 15%;"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-golf-ball"></i></div>
+                <h1>Big Ray's Golf Tour</h1>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#tickets">Tickets</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="date-badge">January 4-14, 2026</div>
+            <h2>Grand Opening Tour</h2>
+            <p>Experience the premiere of the most luxurious golf course in the region. Join us for a weekend of golf, entertainment, and exclusive events!</p>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <div class="hero-btns">
+                <a href="#info" class="btn">Grand Opening Tour Info</a>
+               
+            </div>
+        </div>
+    </section>
+
+    <div class="hero-banner">
+        <h1>Big Ray's Grand Opening Tour</h1>
+        <p>Experience the debut of a world-class golf destination—luxury, challenge, and celebration await you.</p>
+            </div>
+    <section class="about-section-modern">
+        <div class="about-img-modern">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Grand Opening Tour Course">
+        </div>
+        <div class="about-text-modern">
+            <h2 style="color: var(--dark); font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 1.2rem;">Big Ray's Grand Opening Tour About</h2>
+            <p>The Grand Opening Tour is a celebration of excellence, marking the official debut of our world-class golf destination. Set amidst 200 acres of breathtaking scenery, this exclusive event invites you to experience the very best in golf, hospitality, and entertainment.</p>
+            <p>Enjoy our meticulously designed 18-hole championship course, state-of-the-art clubhouse, and exceptional dining—all crafted to deliver an unforgettable experience for every guest. The Grand Opening Tour is more than an event; it's the beginning of a new tradition in luxury golf.</p>
+            <p>Be part of history as we open our doors and welcome you to a weekend filled with excitement, camaraderie, and the spirit of the game. Reserve your place at this landmark occasion and discover what makes our course truly extraordinary.</p>
+                    <a href="#tickets" class="btn" style="margin-top: 20px;">Reserve Your Spot</a>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="section facilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>World-Class Facilities</h2>
+                <p>More than just a golf tour</p>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-golf-ball"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Championship Course</h3>
+                        <p>18 holes designed to challenge and delight golfers of all skill levels with breathtaking views at every turn.</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Clubhouse Dining</h3>
+                        <p>Fine dining with panoramic course views, featuring locally sourced ingredients and chef-inspired cuisine.</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Pro Shop & Academy</h3>
+                        <p>State-of-the-art training facilities with PGA professionals and a pro shop stocked with premium brands.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Grand Opening Tour</h2>
+                <p>A weekend of celebration and competition</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-tag">Tournament</div>
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1590247813693-554a7e92d8f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Golf Tournament">
+                    </div>
+                    <div class="event-content">
+                        <h3>Opening Championship</h3>
+                        <p>Be part of history in our inaugural tournament. Compete for the Golden Club trophy and $10,000 in prizes.</p>
+                        <div class="event-meta">
+                            <div><i class="fas fa-calendar"></i> Aug 15</div>
+                            <div><i class="fas fa-clock"></i> 8:00 AM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-tag">Family</div>
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1590247813693-554a7e92d8f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Golf Lessons">
+                    </div>
+                    <div class="event-content">
+                        <h3>Junior Golf Clinic</h3>
+                        <p>Free clinics for young golfers with PGA professionals. Equipment provided. Ages 6-16 welcome.</p>
+                        <div class="event-meta">
+                            <div><i class="fas fa-calendar"></i> Aug 16</div>
+                            <div><i class="fas fa-clock"></i> 10:00 AM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-tag">Social</div>
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1592924728355-1d4a4b1b0d3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Golf Social">
+                    </div>
+                    <div class="event-content">
+                        <h3>Sunset Celebration</h3>
+                        <p>An evening of live music, gourmet food stations, and drinks as we toast to the future of Big Ray's.</p>
+                        <div class="event-meta">
+                            <div><i class="fas fa-calendar"></i> Aug 16</div>
+                            <div><i class="fas fa-clock"></i> 6:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="section tickets">
+        <div class="container">
+            <div class="section-title">
+                <h2>Membership & Tee Times</h2>
+                <p>Secure your spot for our grand opening</p>
+            </div>
+            <div class="ticket-options">
+                <div class="ticket-card">
+                    <h3>Weekend Pass</h3>
+                    <div class="ticket-price">$99</div>
+                    <ul class="ticket-features">
+                        <li><i class="fas fa-check"></i> 18-Hole Round</li>
+                        <li><i class="fas fa-check"></i> Cart Rental</li>
+                        <li><i class="fas fa-check"></i> Driving Range Access</li>
+                        <li><i class="fas fa-times"></i> Clubhouse Dining</li>
+                        <li><i class="fas fa-times"></i> Tournament Entry</li>
+                    </ul>
+                    <button class="btn btn-outline" data-ticket="weekend">Book Now</button>
+                </div>
+                <div class="ticket-card featured">
+                    <h3>Champions Package</h3>
+                    <div class="ticket-price">$249</div>
+                    <ul class="ticket-features">
+                        <li><i class="fas fa-check"></i> Tournament Entry</li>
+                        <li><i class="fas fa-check"></i> 2 Rounds of Golf</li>
+                        <li><i class="fas fa-check"></i> VIP Clubhouse Access</li>
+                        <li><i class="fas fa-check"></i> Gourmet Dinner</li>
+                        <li><i class="fas fa-check"></i> Pro Shop Discount</li>
+                    </ul>
+                    <button class="btn" data-ticket="champions">Best Value</button>
+                </div>
+                <div class="ticket-card">
+                    <h3>Founding Membership</h3>
+                    <div class="ticket-price">$3,999</div>
+                    <p style="margin: 10px 0;">Annual Membership</p>
+                    <ul class="ticket-features">
+                        <li><i class="fas fa-check"></i> Unlimited Golf</li>
+                        <li><i class="fas fa-check"></i> Guest Privileges</li>
+                        <li><i class="fas fa-check"></i> Dining Discounts</li>
+                        <li><i class="fas fa-check"></i> Pro Shop Discounts</li>
+                        <li><i class="fas fa-check"></i> Priority Booking</li>
+                    </ul>
+                    <button class="btn btn-outline" data-ticket="membership">Join Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Location</h2>
+                <p>Find us in the heart of Big Ray's Beach Club</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Big Ray's Golf Tour</h3>
+                    <p>Marock<br>Community 25<br>Dawhenya-Ghana</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>0501917878</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>info@bigraybeachclub.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>Grand Opening Hours:<br>January 4-14, 2026</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px;">Complimentary valet parking. Electric golf cart charging available.</p>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://maps.app.goo.gl/XU82YNLLXWasntFv8" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Big Ray's Golf Club</h3>
+                    <p>Experience championship golf in a setting of unparalleled beauty. Where every round is memorable.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#tickets">Membership</a></li>
+                        <li><a href="#location">Directions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 7am - 7pm</li>
+                        <li>Saturday - Sunday: 6am - 8pm</li>
+                        <li>Driving Range: 6am - 9pm</li>
+                        <li>Clubhouse: 7am - 11pm</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for golf tips and special offers</p>
+                    <form id="newsletterForm">
+                        <input type="email" id="newsletterEmail" placeholder="Your Email" required style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 4px; border: none;">
+                        <button class="btn" style="width: 100%; background: var(--accent); color: var(--dark);">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Big Ray's Golf Club. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for golfers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('August 15, 2023 08:00:00').getTime();
+            const now = new Date().getTime();
+            const timeRemaining = eventDate - now;
+            
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('countdown').innerHTML = '<p>The event has started! Limited spots may still be available.</p>';
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Booking buttons
+        document.querySelectorAll('[data-ticket]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const ticketType = e.target.dataset.ticket;
+                let message = "Thank you for your interest! ";
+                
+                switch(ticketType) {
+                    case 'weekend':
+                        message += "Your weekend pass booking has been initiated. Our team will contact you shortly to confirm your tee time.";
+                        break;
+                    case 'champions':
+                        message += "You've selected our premium Champions Package! Our concierge will contact you to finalize your tournament entry.";
+                        break;
+                    case 'membership':
+                        message += "Thank you for considering our Founding Membership! A club representative will contact you to discuss membership benefits.";
+                        break;
+                }
+                
+                alert(message);
+            });
+        });
+        
+        // Newsletter form
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            
+            if (validateEmail(email)) {
+                alert(`Thank you for subscribing with ${email}! You'll receive updates about Big Ray's Golf Club.`);
+                newsletterForm.reset();
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+        
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[09]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email.toLowerCase());
+        }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.5rem 0';
+                header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            } else {
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // Animation on scroll for sections
+        const sections = document.querySelectorAll('.section');
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s, transform 0.8s';
+            sectionObserver.observe(section);
+        });
+        
+        // Golf ball animation
+        document.addEventListener('mousemove', (e) => {
+            const golfBalls = document.querySelectorAll('.golf-ball');
+            golfBalls.forEach((ball, index) => {
+                const speed = 0.02 * (index + 1);
+                const x = (window.innerWidth - e.pageX) * speed;
+                const y = (window.innerHeight - e.pageY) * speed;
+                ball.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

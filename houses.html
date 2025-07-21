@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Ray's Beach Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4B006E; /* purple */
+            --secondary: #228B22; /* forest green */
+            --accent: #fff;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            color: var(--primary);
+        }
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(75,0,110,0.1);
+            position: relative;
+        }
+        .top-right-btn-container {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 10;
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .house {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.2s;
+            border: 2px solid var(--secondary);
+        }
+        .house:hover {
+            transform: translateY(-6px) scale(1.02);
+        }
+        .house img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .house-details {
+            padding: 1.2rem;
+        }
+        .house-details h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--secondary);
+        }
+        .house-details p {
+            margin: 0.2rem 0 0.7rem 0;
+            color: #555;
+        }
+        .price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin: 2.5rem 0 1.5rem 0;
+            text-align: center;
+            color: var(--secondary);
+        }
+        .event-btn-container {
+            text-align: center;
+            margin: 3rem 0 1rem 0;
+        }
+        .blinking-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--accent);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 4px 12px rgba(34,139,34,0.08);
+            margin-top: 0;
+            animation: blink 1s step-start 0s infinite;
+            transition: background 0.3s, color 0.3s;
+        }
+        .blinking-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        @keyframes blink {
+            50% { opacity: 0.3; }
+        }
+        @media (max-width: 600px) {
+            .blinking-btn {
+                font-size: 1rem;
+                padding: 0.7rem 1.2rem;
+            }
+            .top-right-btn-container {
+                top: 0.7rem;
+                right: 0.7rem;
+            }
+        }
+        .video-section {
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+        .video-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .video-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <!-- Ghana Travel Sidebar Navigation and SEO Structure -->
+    <style>
+        .ghana-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 290px;
+            background: #fff;
+            border-right: 2px solid #228B22;
+            box-shadow: 2px 0 16px rgba(34,139,34,0.07);
+            z-index: 1000;
+            padding: 2rem 1.2rem 1.2rem 1.2rem;
+            overflow-y: auto;
+            transition: transform 0.3s;
+        }
+        .ghana-sidebar h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: #4B006E;
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+        .ghana-nav-btn {
+            display: block;
+            width: 100%;
+            background: #f5f7fa;
+            color: #228B22;
+            border: 1px solid #228B22;
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .ghana-nav-btn:hover, .ghana-nav-btn:focus {
+            background: #228B22;
+            color: #fff;
+        }
+        .ghana-dropdown {
+            margin-bottom: 1.2rem;
+        }
+        .ghana-dropdown-btn {
+            background: #4B006E;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 0.3rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .ghana-dropdown-btn:after {
+            content: '\25BC';
+            float: right;
+            font-size: 0.9em;
+            margin-left: 0.5em;
+        }
+        .ghana-dropdown-content {
+            display: none;
+            margin-left: 0.5rem;
+            margin-top: 0.2rem;
+        }
+        .ghana-dropdown.open .ghana-dropdown-content {
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .ghana-sidebar {
+                width: 90vw;
+                max-width: 350px;
+                padding: 1.2rem 0.7rem;
+            }
+        }
+    </style>
+    <script>
+        function toggleDropdown(id) {
+            var el = document.getElementById(id);
+            if (el.classList.contains('open')) {
+                el.classList.remove('open');
+            } else {
+                el.classList.add('open');
+            }
+        }
+    </script>
+    <!-- Make sure to include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-right-btn-container">
+            <a class="blinking-btn" href="event.html">Grand Opening Tour</a>
+        </div>
+        <h1>Big Ray's Beach Club</h1>
+        <p>Find your perfect house for sale</p>
+    </header>
+    <div class="ghana-sidebar">
+        <h2>Ghana Travel Quick Navigation</h2>
+        <button class="ghana-nav-btn" onclick="location.href='/ghana-travel-guide/'">Ghana Travel Guide</button>
+        <div class="ghana-dropdown" id="plan-trip-dropdown">
+            <button class="ghana-dropdown-btn" onclick="toggleDropdown('plan-trip-dropdown')">Plan Your Trip</button>
+            <div class="ghana-dropdown-content">
+                <a class="ghana-nav-btn" href="/ghana-visa-requirements/">Ghana Visa Requirements</a>
+                <a class="ghana-nav-btn" href="/ghana-weather-guide/">Ghana Weather Guide</a>
+                <a class="ghana-nav-btn" href="/ghana-currency-exchange/">Currency Exchange</a>
+                <a class="ghana-nav-btn" href="/ghana-weather-july/">Ghana Weather July</a>
+                <a class="ghana-nav-btn" href="/ghana-weather-december/">Ghana Weather December</a>
+            </div>
+        </div>
+        <div class="ghana-dropdown" id="destinations-dropdown">
+            <button class="ghana-dropdown-btn" onclick="toggleDropdown('destinations-dropdown')">Destinations</button>
+            <div class="ghana-dropdown-content">
+                <a class="ghana-nav-btn" href="/things-to-do-ghana/">Things to Do in Ghana</a>
+                <a class="ghana-nav-btn" href="/cape-coast-castle-elmina-guide/">Cape Coast Castle & Elmina</a>
+                <a class="ghana-nav-btn" href="/kakum-national-park-canopy-walk/">Kakum National Park</a>
+                <a class="ghana-nav-btn" href="/mole-national-park-safari/">Mole National Park</a>
+                <a class="ghana-nav-btn" href="/kwame-nkrumah-mausoleum/">Kwame Nkrumah Mausoleum</a>
+            </div>
+        </div>
+        <div class="ghana-dropdown" id="hotels-dropdown">
+            <button class="ghana-dropdown-btn" onclick="toggleDropdown('hotels-dropdown')">Hotels</button>
+            <div class="ghana-dropdown-content">
+                <a class="ghana-nav-btn" href="/best-hotels-accra-ghana/">Best Hotels in Accra</a>
+                <a class="ghana-nav-btn" href="/ghana-hotels/">All Ghana Hotels</a>
+            </div>
+        </div>
+        <div class="ghana-dropdown" id="flights-dropdown">
+            <button class="ghana-dropdown-btn" onclick="toggleDropdown('flights-dropdown')">Flights</button>
+            <div class="ghana-dropdown-content">
+                <a class="ghana-nav-btn" href="/flights-to-accra-ghana/">Flights to Accra</a>
+            </div>
+        </div>
+        <div class="ghana-dropdown" id="travel-guide-dropdown">
+            <button class="ghana-dropdown-btn" onclick="toggleDropdown('travel-guide-dropdown')">Travel Guide</button>
+            <div class="ghana-dropdown-content">
+                <a class="ghana-nav-btn" href="/ghana-travel-guide/">Ghana Travel Guide</a>
+                <a class="ghana-nav-btn" href="/ghana-currency-exchange/">Currency Exchange</a>
+                <a class="ghana-nav-btn" href="/ghana-weather-guide/">Weather Guide</a>
+            </div>
+        </div>
+        <div class="ghana-dropdown" id="blog-dropdown">
+            <button class="ghana-dropdown-btn" onclick="toggleDropdown('blog-dropdown')">Blog</button>
+            <div class="ghana-dropdown-content">
+                <a class="ghana-nav-btn" href="/blog/ghana-travel-tips/">Ghana Travel Tips</a>
+                <a class="ghana-nav-btn" href="/blog/ghana-attractions/">Ghana Attractions</a>
+                <a class="ghana-nav-btn" href="/blog/ghana-culture/">Ghana Culture</a>
+                <a class="ghana-nav-btn" href="/blog/ghana-food/">Ghana Food</a>
+            </div>
+        </div>
+        <div style="margin-top:2rem;">
+            <h2 style="font-size:1.1rem; margin-bottom:0.7rem;">Popular Searches</h2>
+            <a class="ghana-nav-btn" href="/flights-to-accra-ghana/">Flights to Accra</a>
+            <a class="ghana-nav-btn" href="/ghana-hotels/">Ghana Hotels</a>
+            <a class="ghana-nav-btn" href="/cape-coast-castle-elmina-guide/">Cape Coast Castle</a>
+        </div>
+        <div style="margin-top:2rem;">
+            <h2 style="font-size:1.1rem; margin-bottom:0.7rem;">Quick Links</h2>
+            <a class="ghana-nav-btn" href="/ghana-visa-requirements/">Ghana Visa Requirements</a>
+            <a class="ghana-nav-btn" href="/ghana-weather-guide/">Best Time to Visit Ghana</a>
+            <a class="ghana-nav-btn" href="/things-to-do-ghana/">Top Ghana Attractions</a>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Featured Listings section removed -->
+    </div>
+    
+    <div class="video-section">
+        <h2 class="video-title">Property Showcase</h2>
+        <div class="video-container">
+            <!-- Using the HTML5 video tag with MP4 as the primary source, as most modern browsers support MP4 -->
+            <video controls style="max-width:100%; height:auto; display:block; margin:0 auto;" poster="/static/images/property-showcase-poster.jpg">
+                <source src="/static/videos/AI-house.mp4" type="video/mp4">
+                Your browser does not support the video tag. 
+                <a href="/static/videos/AI-house.mp4">Download the video</a> to watch it.
+            </video>
+        </div>
+    </div>
+              
+            </video>
+        </div>
+    </div>
+</body>
+</html> 
